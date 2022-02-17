@@ -1,0 +1,9 @@
+name: "git-commit-message-check-and-then"
+description: "Execute action after checking git commit message"
+inputs:
+  github-token:
+    description: "github token"
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"

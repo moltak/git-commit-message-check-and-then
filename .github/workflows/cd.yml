@@ -1,27 +1,27 @@
 name: cd
 
-on: push
-  branches:
-    - main
-    - develop
+on:
+  push:
+    branches:
+      - main
+      - develop
 
 jobs:
- check-commit-message:
+  check-commit-message:
     name: Check Commit Message
     runs-on: ubuntu-latest
     steps:
       - name: Check Commit message
         uses: gsactions/commit-message-checker@v1
         with:
-          pattern: '\[배포주의\]'
-          flags: 'g'
-          error: '배포주의하세요'
+          pattern: "[배포주의]"
+          flags: "g"
+          error: "배포주의하세요"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            배포주의  
-          reactions: '+1'
-  
+            배포주의
+          reactions: "+1"

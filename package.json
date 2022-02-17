@@ -1,0 +1,21 @@
+{
+  "name": "git-commit-message-check-and-then",
+  "version": "1.0.0",
+  "description": "Execute action after checking git commit message",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js --license licenses.txt",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moltak/git-commit-message-check-and-then"
+  },
+  "keywords": ["github action", "commit message check", "ci", "cd"],
+  "author": "moltak",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  }
+}
