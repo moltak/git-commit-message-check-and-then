@@ -3,7 +3,7 @@ description: "Execute action after checking git commit message"
 inputs:
   github-token:
     description: "github token"
-    required: true
+    required: false
 runs:
   using: "node12"
   main: "dist/index.js"
