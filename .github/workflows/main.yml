@@ -1,14 +1,28 @@
 on:
   workflow_dispatch:
+  push:
 
 jobs:
-  git-commit-message-check-and-then:
+  main:
     runs-on: ubuntu-latest
     name: Git commit message check and then
+    outputs:
+      output1: ${{ steps.main.outputs.RESULT }}
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: Run My Actions
+
+      - name: Check Commit Message
+        id: "main"
         uses: ./
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  after-reaction:
+    if: ${{ contains(steps.main.outputs.RESULT, 'REQUIRED_REACTION') }}
+    runs-on: ubuntu-latest
+    name: After Reaction
+    steps:
+      - id: "1"
+        run: echo "1"
+
+      - id: "2"
+        run: echo "2"
